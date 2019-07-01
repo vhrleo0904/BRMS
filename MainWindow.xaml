@@ -1,0 +1,49 @@
+﻿<Window x:Class="WPF_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Project"
+        mc:Ignorable="d"
+        Title="님, 환영합니다!" Height="900" Width="1300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock x:Name="tbxWelcome" HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" Text="님, 환영합니다." FontFamily="NanumSquareOTF" FontSize="30" VerticalAlignment="Top"/>
+        <ListView x:Name="listViewBooks" Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1100" Height="600" FontFamily="NanumSquareOTF" FontSize="13"
+                   GridViewColumnHeader.Click="Header_Click">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="등록번호" Width="110" DisplayMemberBinding="{Binding RegistId}" />
+                    <GridViewColumn Header="제목" Width="210" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="권" Width="30" DisplayMemberBinding="{Binding Vol}" />
+                    <GridViewColumn Header="권 제목" Width="100" DisplayMemberBinding="{Binding VolExp}" />
+                    <GridViewColumn Header="저자" Width="100" DisplayMemberBinding="{Binding Writer}" />
+                    <GridViewColumn Header="발행처" Width="130" DisplayMemberBinding="{Binding Publisher}" />
+                    <GridViewColumn Header="발행년도" Width="50" DisplayMemberBinding="{Binding PublishYear}" />
+                    <GridViewColumn Header="청구기호" Width="120" DisplayMemberBinding="{Binding CallNumber}" />
+                    <GridViewColumn Header="등록일" Width="140" DisplayMemberBinding="{Binding RegistDate}" />
+                    <GridViewColumn Header="자료상태" Width="80" DisplayMemberBinding="{Binding State}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox x:Name="cbxSearch" HorizontalAlignment="Left" Margin="689,100,0,0" VerticalAlignment="Top" Width="150" FontSize="23" FontFamily="NanumSquareOTF">
+            <ComboBoxItem Content="등록번호"/>
+            <ComboBoxItem Content="제목"/>
+            <ComboBoxItem Content="권"/>
+            <ComboBoxItem Content="권 제목"/>
+            <ComboBoxItem Content="저자"/>
+            <ComboBoxItem Content="발행처"/>
+            <ComboBoxItem Content="발행년도"/>
+            <ComboBoxItem Content="청구기호"/>
+            <ComboBoxItem Content="등록일"/>
+            <ComboBoxItem Content="자료상태"/>
+        </ComboBox>
+        <TextBox x:Name="tbxSearch" HorizontalAlignment="Left" Height="33" Margin="865,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="23" FontFamily="NanumSquareOTF" TextChanged="TbxSearch_TextChanged">
+            <TextBox.Background>
+                <ImageBrush ImageSource="/Img/SEARCH.png" AlignmentX="Left"/>
+            </TextBox.Background>
+        </TextBox>
+        <Button x:Name="btnSearch" Content="검색" HorizontalAlignment="Left" Margin="1092,100,0,0" VerticalAlignment="Top" Width="105" Height="30" FontFamily="NanumSquareOTF" FontSize="20" Click="BtnSearch_Click"/>
+        <Button x:Name="btnBack" Content="뒤로가기" HorizontalAlignment="Left" Margin="1092,796,0,0" VerticalAlignment="Top" Width="105" Height="30" FontFamily="NanumSquareOTF" FontSize="20" Click="BtnBack_Click"/>
+
+    </Grid>
+</Window>
